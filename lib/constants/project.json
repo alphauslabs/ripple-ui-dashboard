@@ -1,0 +1,19 @@
+{
+  "name": "lib-constants",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "lib/constants/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/lib/constants",
+        "main": "lib/constants/src/index.ts",
+        "tsConfig": "lib/constants/tsconfig.lib.json",
+        "assets": ["lib/constants/*.md"]
+      }
+    }
+  }
+}

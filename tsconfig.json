@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "composite": true,
+    "declaration": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "types": ["vite/client"],
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@project-ed/lib/ui": ["./lib/ui/src/index.ts"],
+      "@project-ed/lib/icons": ["./lib/icons/src/index.ts"],
+      "@project-ed/lib/constants": ["./lib/constants/src/index.ts"],
+      "@project-ed/lib/utils": ["./lib/utils/src/index.ts"],
+      "@project-ed/lib/http-service": ["./lib/http-service/src/index.ts"],
+      "@project-ed/lib/shared-i18n": ["./lib/shared-i18n/src/index.ts"],
+      "@stores/*": ["./src/app/stores/*"]
+    }
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}

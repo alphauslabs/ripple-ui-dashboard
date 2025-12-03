@@ -1,0 +1,16 @@
+export default {
+  //Apply: 'Apply',
+  //Cancel: 'Cancel',
+  //'Quick select': 'Quick select',
+  //'Month to date': 'Month to date',
+  //'Year to date': 'Year to date',
+  //'Last 7 days': 'Last 7 days',
+  //'Last 14 days': 'Last 14 days',
+  //'Last 30 days': 'Last 30 days',
+  //'Last 90 days': 'Last 90 days',
+  //'Last 180 days': 'Last 180 days',
+  //'Last 1 month': 'Last 1 month',
+  //'Last 3 months': 'Last 3 months',
+  //'Last 6 months': 'Last 6 months',
+  //'Last 1 year': 'Last 1 year',
+};

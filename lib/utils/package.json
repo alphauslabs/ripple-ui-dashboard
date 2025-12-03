@@ -1,0 +1,15 @@
+{
+  "name": "@project-ed/lib-utils",
+  "version": "0.11.0",
+  "dependencies": {
+    "@project-ed/lib-constants": "*",
+    "clsx": "*",
+    "tailwind-merge": "*",
+    "axios": "*",
+    "lodash": "*"
+  },
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "typings": "./index.d.ts",
+  "private": true
+}

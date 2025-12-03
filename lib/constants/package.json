@@ -1,0 +1,9 @@
+{
+  "name": "@project-ed/lib/constants",
+  "version": "0.11.0",
+  "dependencies": {},
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "typings": "./index.d.ts",
+  "private": true
+}

@@ -1,0 +1,51 @@
+export default {
+  'Get started with Ripple': 'Get started with Ripple',
+  'Follow these steps to get you set up with Ripple':
+    'Follow these steps to get you set up with Ripple',
+  Progress: 'PROGRESS',
+  Completed: 'COMPLETED',
+  'View progress': 'View progress',
+  Dashboard: 'Dashboard',
+  Overview: 'Overview',
+  'Total invoice cost': 'Total invoice cost',
+  'Total procurement cost': 'Total procurement cost',
+  'Total profit': 'Total profit',
+  'Total SPP discount amount': 'Total SPP discount amount',
+
+  'AWS invoice cost': 'AWS invoice cost',
+  'AWS procurement cost': 'AWS procurement cost',
+  'AWS profit': 'AWS profit',
+  'AWS SPP discount amount': 'AWS SPP discount amount',
+
+  'Azure invoice cost': 'Azure invoice cost',
+  'Azure procurement cost': 'Azure procurement cost',
+  'Azure profit': 'Azure profit',
+  'Azure SPP discount amount': 'Azure SPP discount amount',
+
+  'GCP invoice cost': 'GCP invoice cost',
+  'GCP procurement cost': 'GCP procurement cost',
+  'GCP profit': 'GCP profit',
+  'GCP SPP discount amount': 'GCP SPP discount amount',
+
+  'Invoice cost vs profit': 'Invoice cost vs profit',
+  'Invoice data unavailable': 'Invoice data unavailable',
+  'Invoice data unavailable description':
+    'Invoice data is tied to billing group. If there is no billing group created then there will be no data shown. Please create a billing group in the billing group listing page to get started.',
+  'Top 10 billing group profit margin': 'Top 10 billing group profit margin',
+  'Create billing group': 'Create billing group',
+  'View documentation': 'View documentation',
+  Month: 'Month',
+  'Total Invoice Amount': 'Total Invoice Amount',
+  'Total Procurement Cost': 'Total Procurement Cost',
+  'Total Profit': 'Total Profit',
+  Action: 'Action',
+  'View Details': 'View Details',
+  'Display currency': 'Display currency',
+  'Profit from Support fee': 'Profit from Support fee',
+  'Profit from Custom service': 'Profit from Custom service',
+  'Profit from Agency fee': 'Profit from Agency fee',
+  'Profit from Miscellaneous': 'Profit from Miscellaneous',
+  'GCP USD notice': 'GCP values are currently available in JPY only',
+  'GCP USD notice description':
+    'GCP cost data is currently available in JPY only. USD values are not available and are not included in the Total tab. Please switch to JPY currency to view GCP costs.',
+};

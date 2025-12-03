@@ -1,0 +1,19 @@
+{
+  "name": "lib-http-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "lib/http-service/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/lib/http-service",
+        "main": "lib/http-service/src/index.ts",
+        "tsConfig": "lib/http-service/tsconfig.lib.json",
+        "assets": ["lib/http-service/*.md"]
+      }
+    }
+  }
+}

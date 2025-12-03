@@ -1,0 +1,16 @@
+export default {
+  //Apply: '適用',
+  //Cancel: 'キャンセル',
+  //'Quick select': 'クイック選択',
+  //'Month to date': '今月',
+  //'Year to date': '今年',
+  //'Last 7 days': '過去7日間',
+  //'Last 14 days': '過去14日間',
+  //'Last 30 days': '過去30日間',
+  //'Last 90 days': '過去90日間',
+  //'Last 180 days': '過去180日間',
+  //'Last 1 month': '過去1ヶ月',
+  //'Last 3 months': '過去3ヶ月',
+  //'Last 6 months': '過去6ヶ月',
+  //'Last 1 year': '過去1年',
+};
