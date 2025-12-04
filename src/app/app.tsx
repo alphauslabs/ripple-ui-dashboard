@@ -38,7 +38,7 @@ export function App({
   }, [navigate, setHostNavigateFunction]);
 
   return (
-    <div className="min-h-screen py-6 px-8">
+    <div className="min-h-screen">
       <LanguageProvider defaultLanguage={language}>
         <Home />
       </LanguageProvider>

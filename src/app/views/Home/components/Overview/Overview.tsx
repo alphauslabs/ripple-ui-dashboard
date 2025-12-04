@@ -7,23 +7,36 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerContent,
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
 } from '@project-ed/lib/ui';
 import { useEffect, useState } from 'react';
 import TotalTab from './TotalTab';
 import { ITabsValues } from '../../../../../shared';
 import { useTranslation } from 'react-i18next';
 import useDashboardStore from '@stores/dashboard';
-import { parseDate } from '@project-ed/lib/utils';
+import { parseDate, currencySymbol } from '@project-ed/lib/utils';
 import { OverviewProps, PeriodRange } from '@stores/dashboard/types';
 import { Info } from 'lucide-react';
 import { axiosInstance } from '@project-ed/lib/http-service';
 import { getApiUrl } from '@project-ed/lib/utils';
 
-function Overview({ selectedDate }: OverviewProps) {
+interface OverviewComponentProps extends OverviewProps {
+  onDateChange: (date: string) => void;
+  oldestYear: number;
+}
+
+function Overview({ selectedDate, onDateChange, oldestYear }: OverviewComponentProps) {
   const SelectedTabs: ITabsValues[] = ['Total', 'AWS', 'Azure', 'GCP'];
   const { t } = useTranslation('dashboard');
 
-  const { currency, getOverview, Overview, isOverviewLoading } =
+  const { currency, setCurrency, getOverview, Overview, isOverviewLoading } =
     useDashboardStore();
 
   const [hasGcpJpyData, setHasGcpJpyData] = useState<boolean>(false);
@@ -267,7 +280,45 @@ function Overview({ selectedDate }: OverviewProps) {
             </Tooltip>
           )}
         </div>
-        {isOverviewLoading && <Spinner size="sm" />}
+        <div className="flex items-center gap-3">
+          {isOverviewLoading && <Spinner size="sm" />}
+          <Select
+            value={currency.toLowerCase()}
+            onValueChange={setCurrency}
+            data-test="dashboard-currency-selector"
+          >
+            <SelectTrigger className="w-[100px] min-w-[100px]">
+              <SelectValue placeholder={t('Display currency')} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="usd">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono">{currencySymbol('usd')}</span>
+                  <span>USD</span>
+                </div>
+              </SelectItem>
+              <SelectItem value="jpy">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono">{currencySymbol('jpy')}</span>
+                  <span>JPY</span>
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <DatePicker onDateSelect={onDateChange} value={selectedDate}>
+            <DatePickerTrigger
+              placeholder={t('Pick a date')}
+              data-test="dashboard-date-selector"
+              className="min-w-[200px]"
+            />
+            <DatePickerContent
+              availableTabs={['Month', 'Quarter', 'Year']}
+              disableFutureDates={true}
+              align="end"
+              oldestYear={oldestYear}
+            />
+          </DatePicker>
+        </div>
       </div>
       <Tabs defaultValue={SelectedTabs[0]} className="w-full">
         <TabsList>

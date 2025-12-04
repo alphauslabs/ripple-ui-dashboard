@@ -1,24 +1,9 @@
 import { useState, useMemo } from 'react';
-import {
-  DatePicker,
-  DatePickerTrigger,
-  DatePickerContent,
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from '@project-ed/lib/ui';
-import { useTranslation } from 'react-i18next';
 import Overview from './components/Overview/Overview';
 import InvoiceCost from './components/InvoiceCost/InvoiceCost';
 import TopTenBillings from './components/TopTenBillings/TopTenBillings';
-import useDashboardStore from '@stores/dashboard';
-import { currencySymbol } from '@project-ed/lib/utils';
 
 function Home() {
-  const { t } = useTranslation();
-  const { currency, setCurrency } = useDashboardStore();
 
   // Calculate the oldest year that can be selected (current year - 2)
   const oldestYear = useMemo(() => {
@@ -63,51 +48,11 @@ function Home() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-medium">
-          {t('Dashboard')}
-        </h1>
-        <div className="flex items-center gap-3">
-          <Select
-            value={currency.toLowerCase()}
-            onValueChange={setCurrency}
-            data-test="dashboard-currency-selector"
-          >
-            <SelectTrigger className="w-[100px] min-w-[100px]">
-              <SelectValue placeholder={t('Display currency')} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="usd">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono">{currencySymbol('usd')}</span>
-                  <span>USD</span>
-                </div>
-              </SelectItem>
-              <SelectItem value="jpy">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono">{currencySymbol('jpy')}</span>
-                  <span>JPY</span>
-                </div>
-              </SelectItem>
-            </SelectContent>
-          </Select>
-          <DatePicker onDateSelect={setSelectedDate} value={selectedDate}>
-            <DatePickerTrigger
-              placeholder={t('Pick a date')}
-              data-test="dashboard-date-selector"
-              className="min-w-[200px]"
-            />
-            <DatePickerContent
-              availableTabs={['Month', 'Quarter', 'Year']}
-              disableFutureDates={true}
-              align="end"
-              oldestYear={oldestYear}
-            />
-          </DatePicker>
-        </div>
-      </div>
-
-      <Overview selectedDate={selectedDate} />
+      <Overview 
+        selectedDate={selectedDate} 
+        onDateChange={setSelectedDate}
+        oldestYear={oldestYear}
+      />
       <InvoiceCost selectedDate={selectedDate} />
       <TopTenBillings selectedDate={selectedDate} />
     </div>
