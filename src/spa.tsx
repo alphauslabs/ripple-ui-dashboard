@@ -3,7 +3,7 @@ import ReactDOMClient from "react-dom/client";
 import singleSpaReact from "single-spa-react";
 import App from "./app/app";
 import { Toaster } from "@project-ed/lib/ui";
-import "./styles.css";
+import styles from "./styles.css?inline";
 
 const RootComponent = () => (
   <>
@@ -19,9 +19,7 @@ const lifecycles = singleSpaReact({
   domElementGetter: () => {
     const element = document.getElementById("dashboard-content");
     if (!element) {
-      throw new Error(
-        "Could not find dashboard-content element for dashboard"
-      );
+      throw new Error("Could not find dashboard-content element for dashboard");
     }
     return element;
   },
@@ -31,8 +29,22 @@ const lifecycles = singleSpaReact({
   },
 });
 
+// Create style element for CSS lifecycle management
+const styleElement = document.createElement("style");
+styleElement.textContent = styles;
+
 export const bootstrap = lifecycles.bootstrap;
 
-export const mount = lifecycles.mount;
+export const mount = [
+  async () => {
+    document.head.appendChild(styleElement);
+  },
+  lifecycles.mount,
+];
 
-export const unmount = lifecycles.unmount;
+export const unmount = [
+  lifecycles.unmount,
+  async () => {
+    styleElement.remove();
+  },
+];
